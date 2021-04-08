@@ -4,5 +4,4 @@ Framework which collect all data about login, improve safet and use encryption f
 
 
 
-Used login form:
-https://colorlib.com/wp/template/login-form-v1/
+
