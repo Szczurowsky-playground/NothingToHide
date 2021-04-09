@@ -1,5 +1,8 @@
 <?php
-$ip = 'localhost';
-$login = 'root';
-$password = '';
-$db = '';
+$dbData = [
+    'host' => 'localhost',
+    'port' => '3306',
+    'username' => 'root',
+    'password' => '',
+    'dbname' => 'NothingToHide'
+];
