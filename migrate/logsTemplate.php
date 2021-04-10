@@ -13,5 +13,5 @@ if (!empty($dbData)) {
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
     }
     $pdo->query("CREATE DATABASE IF NOT EXISTS $dbname");
-    $pdo->query("CREATE TABLE IF NOT EXISTS `nothingtohide`.`nth_userdata` ( `ID` INT(255) NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB");
+    $pdo->query("CREATE TABLE IF NOT EXISTS `nothingtohide`.`nth_loginlogs` ( `ID` INT(255) NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `date` VARCHAR(255) NOT NULL , `hour` VARCHAR(255) NOT NULL , `passwordOk` BOOLEAN NOT NULL , `passed2fa` BOOLEAN NOT NULL , `wasSuccessful` BOOLEAN NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
 }

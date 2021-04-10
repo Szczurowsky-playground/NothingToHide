@@ -1,5 +1,5 @@
 <?php
-require('mysql.php');
+require($_SERVER['DOCUMENT_ROOT'] . '../mysql.php');
 if (!empty($dbData)) {
     $host = $dbData['host'];
     $port = $dbData['port'];

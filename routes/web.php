@@ -6,7 +6,7 @@ $routes = [
     "../views/auth/logout.php" => "/logout",
     "../views/test.php" => "/test",
     "../controller/auth/registerController.php" => "/register/validate",
-    "../controller/auth/loginController.php" => "/validate/login",
+    "../controller/auth/loginController.php" => "/login/validate",
 ];
 
 
