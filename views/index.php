@@ -6,7 +6,14 @@
     <div id="formContent">
         <h2 class="inactive"><a href="/login">Sign Up </a></h2>
         <h2 class="inactive"><a href="/register">Sign Up </a></h2>
-
+        <?php
+        if(!isset($_SESSION)){
+            session_start();
+        }
+        if(isset($_SESSION['username'])){
+            echo '<p>' . $_SESSION['username'] . '</p>';
+        }
+        ?>
         <div class="fadeIn first">
             <img src="core/img/Logo.png" id="icon" alt="User Icon" />
         </div>

@@ -1,4 +1,5 @@
 <?php
+
 require($_SERVER['DOCUMENT_ROOT'] . '../mysql.php');
 if (!empty($dbData)) {
     $host = $dbData['host'];
@@ -13,5 +14,5 @@ if (!empty($dbData)) {
         throw new \PDOException($e->getMessage(), (int)$e->getCode());
     }
     $pdo->query("CREATE DATABASE IF NOT EXISTS $dbname");
-    $pdo->query("CREATE TABLE IF NOT EXISTS `nothingtohide`.`nth_loginlogs` ( `ID` INT(255) NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `IP` VARCHAR(255) NOT NULL ,`date` VARCHAR(255) NOT NULL , `hour` VARCHAR(255) NOT NULL , `passwordOk` BOOLEAN NOT NULL , `passed2fa` BOOLEAN NOT NULL , `wasSuccessful` BOOLEAN NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
+    $pdo->query("CREATE TABLE `nothingtohide`.`nth_token` ( `ID` INT(255) NULL , `token` VARCHAR(255) NOT NULL , `IP` VARCHAR(255) NOT NULL , `username` INT(255) NOT NULL ) ENGINE = InnoDB");
 }
