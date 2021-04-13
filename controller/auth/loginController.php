@@ -55,6 +55,9 @@ function validate(): bool
                 $_SESSION['username'] = $encryptedUsername;
                 setcookie('nth_val1', $encryptedUsername, time()+(86400 * 30), '/', secure:false/*Could be true but for dev purposes it's false bcs xamp server(dont want to lose time for ssl enabling)*/);
                 addToLog($username, true);
+                require_once($_SERVER['DOCUMENT_ROOT'] . '/../model/sessionClass.php');
+                $sessionClass = new session();
+                $sessionClass->addSession($username);
                 return(true);
             }
             else{

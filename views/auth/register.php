@@ -1,3 +1,6 @@
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
+?>
 <head>
     <title>NothingToHide Framework - Register</title>
     <link href="core/css/form.css" rel="stylesheet">
