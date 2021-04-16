@@ -1,29 +1,26 @@
 <?php
-$currentPageUrl = $_SERVER["REQUEST_URI"];
 $dev = true;
+$currentPageUrl = $_SERVER["REQUEST_URI"];
+if (strpos($currentPageUrl, "?")) {
+    $currentPageUrl = substr($currentPageUrl, 0, strpos($currentPageUrl, "?"));
+}
 if ($dev == false){
     error_reporting(0);
 }
 require ('../controller/redirectController.php');
-$page = redirect($currentPageUrl, $routes);
-if (str_contains($currentPageUrl, 'profile')) {
-    if (str_contains($currentPageUrl, 'profile/')) {
-        $searchingNickname = str_replace("/profile/", "", $currentPageUrl);
-        require_once('profile.php');
-
-    }
-    else {
-        $error_type = 'Błąd 404';
-        $error_solution = 'Przykro nam ale podana strona nie istnieje. Musisz dodać "/nick gracza" po "/profile"';
-        require_once('custom_error.php');
-    }
-
+if(!isset($routes)){
+    $error_type = 'Routing system error';
+    $error_solution = 'Something goes wrong';
+    require_once('custom_error.php');
 }
-elseif($page == "Error") {
-    $error_type = 'Błąd 404';
-    $error_solution = 'Przykro nam strona której szukasz nie istnieje';
+$page = redirect($currentPageUrl, $routes);
+if($page == "Error") {
+    $error_type = 'Error 404';
+    $error_solution = 'Site what you are looking for does not exists';
     require('custom_error.php');
 }
 else{
     include($page);
 }
+
+

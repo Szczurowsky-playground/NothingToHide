@@ -15,7 +15,7 @@
             <div class="col-md-12 text-center">
                 <span class="display-1 d-block"><?php echo $error_type;?></span>
                 <div class="mb-4 lead"><?php echo $error_solution;?></div>
-                <a href="/" class="btn btn-link">Wróć do strony głównej</a>
+                <a href="/" class="btn btn-link">Back to the home page</a>
             </div>
         </div>
     </div>

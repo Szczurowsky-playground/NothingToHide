@@ -2,6 +2,7 @@
 if(!isset($_SESSION)){
     session_start();
 }
+print_r($_POST);
 require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
 
 function validateLogin(): bool
@@ -94,6 +95,20 @@ function addToLog($username, $passwordOk){
     $pdo = setDatabaseConnection();
     $stm = $pdo->prepare("INSERT INTO `nth_loginlogs` (`ID`, `username`, `IP`, `date`, `hour`, `passwordOk`, `passed2fa`, `wasSuccessful`) VALUES (:ID, :username, :ip, :date, :hour, :passOk, :p2fa, :wasSucc);");
     $stm->execute($loginLogs);
+    if ($passwordOk == 1){ //There i will change is for wasSucc but actually there's no 2FA feature
+        $loginData =[
+            'test' => $_POST['Incognito'],
+        ];
+        $json = json_encode($loginData, true);
+        $loginDataToSQL =[
+            'ID' => '',
+            'username' => $username,
+            'jsondata' => $json,
+        ];
+        $pdo = setDatabaseConnection();
+        $stm = $pdo->prepare("INSERT INTO `nth_logindata` (`ID`, `username`, `jsondata`) VALUES (:ID, :username, :jsondata);");
+        $stm->execute($loginDataToSQL);
+    }
 }
 
 

@@ -1,16 +1,15 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
 ?>
+
 <head>
-    <title>NothingToHide Framework - Login</title>
+    <title>NothingToHide Framework - Info</title>
     <link href="core/css/form.css" rel="stylesheet">
 </head>
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <?php if(!isset($_COOKIE['nth_val1'])){echo '<h2 class="inactive underlineHover"><a href="/login">Sign In </a></h2>';} ?>
-        <?php if(!isset($_COOKIE['nth_val1'])){echo '<h2 class="inactive underlineHover"><a href="/register">Sign Up </a></h2>';} ?>
+        <?php if(isset($_COOKIE['nth_val1'])){echo '<h2 class="inactive underlineHover"><a href="/">Home </a></h2>';} ?>
         <?php if(isset($_COOKIE['nth_val1'])){echo '<h2 class="inactive underlineHover"><a href="/logout">Logout </a></h2>';} ?>
-        <?php if(isset($_COOKIE['nth_val1'])){echo '<h2 class="inactive underlineHover"><a href="/info">Info </a></h2>';} ?>
         <?php
         if(!isset($_SESSION)){
             session_start();
@@ -23,7 +22,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
             <img src="core/img/Logo.png" id="icon" alt="User Icon" />
         </div>
 
-        <h1>It's supposed to be main page</h1>
+        <h1>It could be main page</h1>
 
 
     </div>
