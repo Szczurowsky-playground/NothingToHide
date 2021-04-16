@@ -1,6 +1,5 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
-print_r($_POST);
 ?>
 <head>
     <title>NothingToHide Framework - Login</title>

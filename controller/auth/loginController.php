@@ -2,7 +2,6 @@
 if(!isset($_SESSION)){
     session_start();
 }
-print_r($_POST);
 require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
 
 function validateLogin(): bool
