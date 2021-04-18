@@ -53,7 +53,7 @@ function validate(): bool
                 $encryptModel = new encryption();
                 $encryptedUsername = $encryptModel->encrypt($username);
                 $_SESSION['username'] = $encryptedUsername;
-                setcookie('nth_val1', $encryptedUsername, time()+(86400 * 30), '/', secure:false/*Could be true but for dev purposes it's false bcs xamp server(dont want to lose time for ssl enabling)*/);
+                setcookie('nth_val1', $encryptedUsername, time()+(86400 * 30), '/', secure:false); // TODO Make it true, now false for dev purposes
                 addToLog($username, true);
                 require_once($_SERVER['DOCUMENT_ROOT'] . '/../model/sessionClass.php');
                 $sessionClass = new session();
@@ -94,9 +94,19 @@ function addToLog($username, $passwordOk){
     $pdo = setDatabaseConnection();
     $stm = $pdo->prepare("INSERT INTO `nth_loginlogs` (`ID`, `username`, `IP`, `date`, `hour`, `passwordOk`, `passed2fa`, `wasSuccessful`) VALUES (:ID, :username, :ip, :date, :hour, :passOk, :p2fa, :wasSucc);");
     $stm->execute($loginLogs);
-    if ($passwordOk == 1){ //There i will change is for wasSucc but actually there's no 2FA feature
+    if ($passwordOk == 1){ // TODO There i will change is for wasSucc but actually there's no 2FA feature
+        $browser = get_browser(null, true);
+        $url = 'http://ip-api.com/json/'. $userIP .'?fields=18080465';
+        $json = file_get_contents($url);
+        $IPData = json_decode($json, true);
         $loginData =[
-            'test' => $_POST['Incognito'],
+            'Time' => $date . ' ' .$hour,
+            'IP' => $userIP,
+            'Incognito' => $_POST['userIncognito'],
+            'Browser' => $browser['parent'],
+            'OS' => $browser['platform'],
+            'Timezone'=> $_POST['userTimezone'],
+            'IPData' => $IPData,
         ];
         $json = json_encode($loginData, true);
         $loginDataToSQL =[
@@ -109,7 +119,6 @@ function addToLog($username, $passwordOk){
         $stm->execute($loginDataToSQL);
     }
 }
-
 
 if (validate() == 1) {
     header('Location: /');

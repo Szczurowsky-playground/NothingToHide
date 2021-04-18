@@ -20,7 +20,7 @@ class session extends encryption
                 $_COOKIE['nth_val1'] = $_SESSION['username'];
             }
             else{
-                $_SESSION['username'] = '0';
+                $_SESSION['username'] = NULL;
             }
         }
         self::$token = session_id();
@@ -85,7 +85,7 @@ class session extends encryption
             }
         }
         if(isset($_SESSION['username']) && !isset($_COOKIE['nth_val1'])){
-            setcookie('nth_val1', $_SESSION['username'], time()+(86400 * 30), '/', secure:true);
+            setcookie('nth_val1', $_SESSION['username'], time()+(86400 * 30), '/', secure:false); // TODO Make it true, now false for dev purposes
         }
         if(self::$username == 1 || self::$username == 0){
             return false;
