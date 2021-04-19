@@ -1,9 +1,9 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
+require_once('views/template/default.php');
 ?>
 <head>
     <title>NothingToHide Framework - Register</title>
-    <link href="core/css/form.css" rel="stylesheet">
+    <link href="/public/core/css/form.css" rel="stylesheet">
 </head>
 <div class="wrapper fadeInDown">
     <div id="formContent">
@@ -14,7 +14,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
             echo $_POST['regError'];
             ?></p>
         <div class="fadeIn first">
-            <img src="core/img/Logo.png" id="icon" alt="User Icon" />
+            <img src="/public/core/img/Logo.png" id="icon" alt="User Icon" />
         </div>
 
         <form action="/register/validate" method="post" id="login">

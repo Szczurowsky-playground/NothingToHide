@@ -2,7 +2,7 @@
 
 use JetBrains\PhpStorm\Pure;
 
-include_once('../routes/web.php');
+include_once('routes/web.php');
 
 #[Pure] function redirect($URL, $array) {
     if (in_array($URL, $array)) {

@@ -1,11 +1,11 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
+require_once('views/template/default.php');
 ?>
 
 <head>
     <title>NothingToHide Framework - Info</title>
-    <link href="core/css/form.css" rel="stylesheet">
-    <link href="core/css/core.css" rel="stylesheet">
+    <link href="/public/core/css/form.css" rel="stylesheet">
+    <link href="/public/core/css/core.css" rel="stylesheet">
 </head>
 <div class="wrapper fadeInDown">
     <div id="formContent1">
@@ -36,8 +36,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
             </thead>
             <tbody>
             <?php
-            require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
-            require_once($_SERVER['DOCUMENT_ROOT'] . '../model/encryptionClass.php');
+            require_once('controller/databaseInit.php');
+            require_once('model/encryptionClass.php');
             $pdo = setDatabaseConnection();
             $class = new encryption();
             $username = $class->decrypt($_SESSION['username']);

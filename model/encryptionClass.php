@@ -27,9 +27,9 @@ class encryption
             'iv_length' => openssl_cipher_iv_length('aes-256-cbc'),
             'options' => 0,
             ];
-        if (file_exists('../keys.json'))
+        if (file_exists('keys.json'))
         {
-            $file = file_get_contents('../keys.json');
+            $file = file_get_contents('keys.json');
             $json = json_decode($file, true);
             self::$serverDecIV = $json['serverDecIV'];
             self::$serverDecKey = $json['serverDecKey'];
@@ -48,7 +48,7 @@ class encryption
                 'serverDecKey' => self::$serverDecKey,
             ];
             $json = json_encode($data, true);
-            file_put_contents('../keys.json', $json);
+            file_put_contents('keys.json', $json);
         }
     }
 

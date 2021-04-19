@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){
     session_start();
 }
-require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
+require_once('controller/databaseInit.php');
 
 function validateLogin(): bool
 {
@@ -33,8 +33,8 @@ function validateLogin(): bool
 
 function validate(): bool
 {
-    require_once($_SERVER['DOCUMENT_ROOT'] .'/../controller/hashController.php');
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/../model/encryptionClass.php');
+    require_once('controller/hashController.php');
+    require_once('model/encryptionClass.php');
     if($_POST['password'] == ''){
         return(false);
     }
@@ -55,7 +55,7 @@ function validate(): bool
                 $_SESSION['username'] = $encryptedUsername;
                 setcookie('nth_val1', $encryptedUsername, time()+(86400 * 30), '/', secure:false); // TODO Make it true if use ssl, now false for dev purposes
                 addToLog($username, true);
-                require_once($_SERVER['DOCUMENT_ROOT'] . '/../model/sessionClass.php');
+                require_once('model/sessionClass.php');
                 $sessionClass = new session();
                 $sessionClass->addSession($username);
                 return(true);
@@ -76,7 +76,7 @@ function validate(): bool
 }
 
 function addToLog($username, $passwordOk){
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/../model/sessionClass.php');
+    require_once('model/sessionClass.php');
     $sessionClass = new session();
     $date = date("Y/m/d");
     $hour = date("H:i:s");

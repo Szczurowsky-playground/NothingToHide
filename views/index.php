@@ -1,9 +1,9 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
+require_once('views/template/default.php');
 ?>
 <head>
     <title>NothingToHide Framework - Login</title>
-    <link href="core/css/form.css" rel="stylesheet">
+    <link href="/public/core/css/form.css" rel="stylesheet">
 </head>
 <div class="wrapper fadeInDown">
     <div id="formContent">
@@ -15,12 +15,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
         if(!isset($_SESSION)){
             session_start();
         }
-        if(isset($_SESSION['username'])){
-            echo '<p> Witaj ' . $_SESSION['username'] . '</p>';
-        }
         ?>
         <div class="fadeIn first">
-            <img src="core/img/Logo.png" id="icon" alt="User Icon" />
+            <img src="/public/core/img/Logo.png" id="icon" alt="User Icon" />
         </div>
 
         <h1>Nothing To Hide Framework</h1>

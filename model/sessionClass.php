@@ -39,7 +39,7 @@ class session extends encryption
 
     #[NoReturn] public function addSession($username)
     {
-        require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
+        require_once('controller/databaseInit.php');
         $pdo = setDatabaseConnection();
         $values =[
           'ID' => '',
@@ -52,7 +52,7 @@ class session extends encryption
 
     #[NoReturn] public function logout()
     {
-        require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
+        require_once('controller/databaseInit.php');
         if(!isset($_SESSION)){
             session_start();
         }
@@ -90,7 +90,7 @@ class session extends encryption
         if(self::$username == 1 || self::$username == 0){
             return false;
         }
-        require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
+        require_once('controller/databaseInit.php');
         $pdo = setDatabaseConnection();
         $stm = $pdo->prepare('SELECT IP, token FROM `nth_token` WHERE username = :username');
         $stm->bindValue('username', self::$username);

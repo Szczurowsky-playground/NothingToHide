@@ -8,7 +8,7 @@ function validateName(): bool|string
     $login = $_POST['login'];
     if(strlen($login) >= 4){
         if(!preg_match('/[^A-Za-z0-9.#\\-_]/', $login)){
-            require_once($_SERVER['DOCUMENT_ROOT'] . '../controller/databaseInit.php');
+            require_once('controller/databaseInit.php');
             $pdo = setDatabaseConnection();
             if($pdo == false){
                 return('Error occurred with database connection');
@@ -69,7 +69,7 @@ function register(): bool|string
         if($pdo == false){
             return('Error occurred with database connection');
         }
-        require_once($_SERVER['DOCUMENT_ROOT'] .'/../controller/hashController.php');
+        require_once('controller/hashController.php');
         $username = $_POST['login'];
         $password = hashData($_POST['password']);
         $pageUsers = [

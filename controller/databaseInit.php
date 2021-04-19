@@ -2,7 +2,7 @@
 // MYSQL initial connection
 function setDatabaseConnection(): PDO|bool
 {
-    require($_SERVER['DOCUMENT_ROOT'] . '../mysql.php');
+    require('mysql.php');
     if (!empty($dbData)) {
         $host = $dbData['host'];
         $port = $dbData['port'];
