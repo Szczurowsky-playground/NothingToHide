@@ -26,7 +26,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
         </form>
 
         <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+            <a class="underlineHover" href="/register">Not registered?</a>
         </div>
 
     </div>

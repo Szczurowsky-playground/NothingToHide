@@ -23,9 +23,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '../views/template/default.php');
             <input type="submit" class="fadeIn fourth" value="Register">
         </form>
 
-
+        <div id="formFooter">
+            <a class="underlineHover" href="/login">Already registered?</a>
+        </div>
     </div>
 </div>
+
 
 <noscript>
     <meta http-equiv="refresh" content="0;url=nojs.html">
