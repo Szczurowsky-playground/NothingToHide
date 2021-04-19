@@ -1,1 +1,0 @@
-Yo, that's directory with files like JS which checks is your browser in incognito. These scripts are hashed by basic to disallow people's check them in browser
