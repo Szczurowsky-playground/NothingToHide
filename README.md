@@ -10,8 +10,8 @@
 
 ## About
 Welcome dear user, NTH for this time does not support laravel, symfony etc. It's build on it's own basic framework. NTH have basic functionality like routing, login/register and logs all important data about login.
-##Screenshots
-![Screenshot 1](public/core/img/)
+## Screenshots
+Soon
 ## Built with
 
 <p align="left">
