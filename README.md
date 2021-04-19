@@ -47,4 +47,4 @@ Feel free to contact me via github or discord `Szczurowsky#2137`
 
 ## [License](https://github.com/Szczurowsky/NothingToHide/blob/main/LICENSE)
 
-MIT © [Szczurowsky ](https://github.com/iharsh234)
+MIT © [Szczurowsky ](https://github.com/Szczurowsky)
