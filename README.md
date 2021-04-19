@@ -33,7 +33,7 @@ Soon
 - Database support (Tested on MySQL and MariaDB)
 - JS safety stored in obfuscated form (Source in dir resourceNotForWeb)
 ##Setup
-- Clone repository `gh repo clone Szczurowsky/NothingToHide`
+- Clone repository `https://github.com/Szczurowsky/NothingToHide`
 - Add database creditentials to mysql.php/php
 - If you are going to use SSL then you should change `secure:true` in `/controller/auth/loginController.php` and `/model/sessionClass.php`
 - If use apache you're ready to go, if use nginx setup it properly like in .htaccess
